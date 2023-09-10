@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Моя визитка</title>
+  <style>
+    /* Стили для визитки */
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f2f2f2;
+      margin: 0;
+      padding: 0;
+    }
+    
+    .container {
+      max-width: 600px;
+      margin: 0 auto;
+      padding: 20px;
+      background-color: #ffffff;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      border-radius: 5px;
+      text-align: center;
+    }
+    
+    .name {
+      font-size: 24px;
+      font-weight: bold;
+      margin-bottom: 10px;
+    }
+    
+    .title {
+      font-size: 18px;
+      color: #888888;
+      margin-bottom: 20px;
+    }
+    
+    .contact-info {
+      font-size: 16px;
+      margin-bottom: 10px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1 class="name">Ваше имя</h1>
+    <h2 class="title">Должность</h2>
+    <p class="contact-info">Email: yourname@example.com</p>
+    <p class="contact-info">Телефон: +7 123 456 789</p>
+    <p class="contact-info">Город: Ваш город</p>
+  </div>
+</body>
+</html>
