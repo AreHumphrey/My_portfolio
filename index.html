@@ -1,51 +1,318 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Моя визитка</title>
+  <meta charset="UTF-8">
+  <title>Двусторонняя электронная визитка</title>
   <style>
-    /* Стили для визитки */
     body {
-      font-family: Arial, sans-serif;
-      background-color: #f2f2f2;
-      margin: 0;
-      padding: 0;
+      font-family: "Segoe UI", sans-serif;
+      display: flex;
     }
-    
-    .container {
-      max-width: 600px;
-      margin: 0 auto;
-      padding: 20px;
-      background-color: #ffffff;
-      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+
+    .business-card {
+      width: 600px;
+      height: 420px;
+      perspective: 1000px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin: 100px auto;
+
+    }
+
+    .business-card .front-side,
+    .business-card .back-side {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      transition: transform 2.0s;
+      backface-visibility: hidden;
+      transform-style: preserve-3d;
+    }
+
+    .business-card .front-side {
+      background-color: #efdbcd;
+      box-shadow: 0px 7px 7px 0px rgba(0, 0, 0, 0.25);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      transform-origin: right;
+    }
+
+    .business-card .back-side {
+      transform: rotateX(210deg);
+      background-color: #efdbcd;
+      box-shadow: 0px 7px 7px 0px rgba(0, 0, 0, 0.25);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      transform-origin: right;
+    }
+
+    .business-card.flipped .front-side {
+      transform: rotateX(210deg);
+      background-color: #efdbcd;
+      box-shadow: 0 7px 7px 0 rgba(0, 0, 0, 0.25);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      transform-origin: left;
+    }
+
+    .business-card.flipped .back-side {
+      transform: rotateY(0deg);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      transform-origin: right;
+    }
+
+    .h1_back{
+      position: absolute;
+      font-size: 25px;
+      color: white;
+      font-weight: 700;
+      margin: 8px 105px;
+    }
+
+    h1 {
+      position: absolute;
+      font-size: 35px;
+      color: white;
+      font-weight: 700;
+      margin: 5px 80px;
+    }
+
+    .h1_container {
+      position: absolute;
+      width: 300px;
+      height: 60px;
+      background-color: #423228;
+      transform: translateY(-150px) translateX(-10px);
+      color: white;
       border-radius: 5px;
-      text-align: center;
     }
-    
-    .name {
+
+    .h1_container_back {
+      position: absolute;
+      width: 500px;
+      height: 50px;
+      background-color: #423228;
+      transform: translateY(-160px) translateX(-10px);
+      color: white;
+      border-radius: 5px;
+    }
+
+
+    .p_class {
+      font-size: 25px;
+      transform: translateY(-70px) translateX(-10px);
+      font-weight: 600;
+      color: #423228;
+      background-color: white;
+      border-radius: 5px;
+    }
+
+    .circuit_1 {
+      height: 420px;
+      position: absolute;
+      z-index: 0;
+      right: 1px;
+
+    }
+
+    .circuit_2 {
+      z-index: 0;
+      position: absolute;
+      transform: translateY(124px) translateX(-100px);
+    }
+
+    .circuit_3 {
+      z-index: 0;
+      position: absolute;
+      transform: translateY(70px) translateX(-263px);
+    }
+
+    .socials {
+      display: flex;
+      position: absolute;
+      align-content: center;
+      align-items: center;
+
+    }
+
+    .socials a {
+      display: inline-block;
+      margin-right: 20px;
+    }
+
+    .socials img {
+      width: 70px;
+      height: 70px;
+    }
+
+    .icon {
+      width: 35px;
+      height: 35px;
+    }
+
+    .technology-stack {
+      position: absolute;
+      display: flex;
+      align-items: flex-start;
+      margin-top: 50px;
+      column-gap: 60px;
+
+    }
+
+    .technology-stack .column {
+      display: flex;
+      flex-direction: column;
+      margin-top: 5px;
+
+
+    }
+
+    .technology-stack .icon-group {
+      display: flex;
+      align-items: flex-start;
+    }
+
+    .technology-stack .icon-group .icon {
+      margin-right: 10px;
+      margin-top: 32px;
+    }
+
+    .column {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .column img {
+      margin-bottom: 10px;
+      margin-top: 10px;
+    }
+
+    .column p {
+      margin-bottom: 10px;
+    }
+
+    .p_back_class {
+      font-weight: 600;
+      color: #423228;
       font-size: 24px;
-      font-weight: bold;
-      margin-bottom: 10px;
+      padding-top: 10px;
+
     }
-    
-    .title {
-      font-size: 18px;
-      color: #888888;
-      margin-bottom: 20px;
+
+    .dek {
+      transform: translateY(-122px) translateX(0px);
     }
-    
-    .contact-info {
-      font-size: 16px;
-      margin-bottom: 10px;
-    }
+
   </style>
 </head>
 <body>
-  <div class="container">
-    <h1 class="name">Ваше имя</h1>
-    <h2 class="title">Должность</h2>
-    <p class="contact-info">Email: yourname@example.com</p>
-    <p class="contact-info">Телефон: +7 123 456 789</p>
-    <p class="contact-info">Город: Ваш город</p>
+<div class="business-card">
+  <div class="front-side">
+    <div class="h1_container">
+      <h1 class="h1">
+        Lut Dina
+      </h1>
+    </div>
+
+    <p class="p_class">19 y.o. the 2 course of MCS FEFU.</p>
+
+    <img src="img/Group.svg" class="circuit_3">
+    <img src="img/circuit_102233%202.svg" class="circuit_2">
+    <img src="img/circuit_102233%201.svg" class="circuit_1">
+
+    <div class="socials">
+      <a href="mailto:lutdina04@yandex.ru"><img src="img/envelope_mail_icon-icons.com_66119%201.svg"></a>
+      <a href="https://t.me/qmmmtt"><img src="img/telegram_brands_icon_256551%201.svg"></a>
+      <a href="https://github.com/AreHumphrey"><img src="img/github_git_icon_145985%201.svg"></a>
+      <a href="https://vk.com/naomi_des04"><img src="img/Vk.com_icon-icons.com_55781%201.svg"></a>
+    </div>
   </div>
+  <div class="back-side">
+    <div class="h1_container_back">
+      <h1 class="h1_back">
+        My development stack
+      </h1>
+    </div>
+    <img src="img/Frame%2017.svg" class="dek">
+
+    <div class="technology-stack">
+      <div class="column">
+
+        <div class="icon-group">
+          <img src="img/Vector%20(1).svg" class="icon">
+          <p class="p_back_class">HTML</p>
+        </div>
+        <div class="icon-group">
+          <img src="img/dev_css_icon_160858%201.svg" class="icon">
+          <p class="p_back_class">CSS</p>
+        </div>
+        <div class="icon-group">
+          <img src="img/flutter_icon_132386%201.svg" class="icon">
+          <p class="p_back_class">Flutter</p>
+        </div>
+        <div class="icon-group">
+          <img src="img/Vector.svg" class="icon">
+          <p class="p_back_class">Dart</p>
+        </div>
+      </div>
+      <div class="column">
+        <div class="icon-group">
+          <img src="img/react_logo_icon_144942%201.svg" class="icon">
+          <p class="p_back_class">React</p>
+        </div>
+        <div class="icon-group">
+          <img src="img/file_type_js_official_icon_130509%201.svg" class="icon">
+          <p class="p_back_class">JavaScript</p>
+        </div>
+        <div class="icon-group">
+          <img src="img/plus_logo_c_icon_214621%201.svg" class="icon">
+          <p class="p_back_class">C++</p>
+        </div>
+        <div class="icon-group">
+          <img src="img/c_sharp_icon_213045%201.svg" class="icon">
+          <p class="p_back_class">C#</p>
+        </div>
+      </div>
+      <div class="column">
+        <div class="icon-group">
+          <img src="img/mysqlworkbench_93532%201.svg" class="icon">
+          <p class="p_back_class">MySQL</p>
+        </div>
+        <div class="icon-group">
+          <img src="img/matlab_104289%201.svg" class="icon">
+          <p class="p_back_class">MathLab</p>
+        </div>
+        <div class="icon-group">
+          <img src="img/file_type_python_icon_130221%201.svg" class="icon">
+          <p class="p_back_class">Python</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  const businessCard = document.querySelector('.business-card');
+
+  const socialLinks = businessCard.querySelectorAll('.socials a');
+
+  socialLinks.forEach(link => {
+    link.addEventListener('click', (event) => {
+      event.stopPropagation();
+    });
+  });
+
+  businessCard.addEventListener('click', () => {
+    if (!event.target.closest('.socials')) {
+      businessCard.classList.toggle('flipped');
+    }
+  });
+</script>
 </body>
 </html>
